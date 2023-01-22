@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--web.xml is your depoyment descriptor
+        this is how tomcat gathers information about your project, such as welcome files,
+            available servlets, how to handle errors and exceptions, and other various
+            configurations you may want tomcat to know about.
+    It belongs in src/main/webapp/WEB-INF/ directory
+-->
+<web-app
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://java.sun.com/xml/ns/javaee"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+        version="2.5">
+
+
+    <listener>
+        <listener-class>com.sydneehaley.servlet.Listener</listener-class>
+    </listener>
+
+    <servlet>
+        <servlet-name>usersServlet</servlet-name>
+        <servlet-class>com.sydneehaley.servlet.UsersServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>usersServlet</servlet-name>
+        <url-pattern>/users</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>authServlet</servlet-name>
+        <servlet-class>com.sydneehaley.servlet.AuthServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>authServlet</servlet-name>
+        <url-pattern>/auth/user</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>sessionServlet</servlet-name>
+        <servlet-class>com.sydneehaley.servlet.SessionServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>sessionServlet</servlet-name>
+        <url-pattern>/auth/user/session</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ticketServlet</servlet-name>
+        <servlet-class>com.sydneehaley.servlet.TicketServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ticketServlet</servlet-name>
+        <url-pattern>/tickets</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>filterTicketsServlet</servlet-name>
+        <servlet-class>com.sydneehaley.servlet.FilterTicketsServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>filterTicketsServlet</servlet-name>
+        <url-pattern>/tickets/filter</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>filterTicketsByIdServlet</servlet-name>
+        <servlet-class>com.sydneehaley.servlet.UserTicketsServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>filterTicketsByIdServlet</servlet-name>
+        <url-pattern>/tickets/user</url-pattern>
+    </servlet-mapping>
+
+
+
+    <servlet>
+        <servlet-name>adminAuthServlet</servlet-name>
+        <servlet-class>com.sydneehaley.servlet.AdminServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>adminAuthServlet</servlet-name>
+        <url-pattern>/auth/admin</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>updateServlet</servlet-name>
+        <servlet-class>com.sydneehaley.servlet.TicketServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>updateServlet</servlet-name>
+        <url-pattern>/admin/ticket</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>CorsFilter</filter-name>
+        <filter-class>com.sydneehaley.servlet.CorsFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>CorsFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+</web-app>
